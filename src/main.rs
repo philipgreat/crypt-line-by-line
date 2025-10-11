@@ -63,7 +63,9 @@ fn main() -> io::Result<()> {
 
     // 派生密钥
     let password_bytes = args.password.as_bytes();
-    let key = Key::<Aes256Gcm>::from_slice(&sha256(password_bytes));
+    let binding = sha256(password_bytes);
+    let key = Key::<Aes256Gcm>::from_slice(&binding);
+    //let key = Key::<Aes256Gcm>::from_slice(&sha256(password_bytes));
     let cipher = Aes256Gcm::new(key);
 
     // ⚠️ 非安全修改: 在循环外固定 Nonce
