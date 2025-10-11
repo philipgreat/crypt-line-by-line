@@ -1,6 +1,18 @@
 [package]
 name = "crypt-line-by-line"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+# 命令行参数解析
+clap = { version = "4.4.11", features = ["derive", "env"] } # ⚠️ 修复: 添加 "env" feature
+# AES-GCM 加密库
+aes-gcm = "0.10.3"
+# Base64 编解码
+base64 = "0.21.5"
+# Argon2 密码派生函数 (虽然目前未使用，但保留)
+argon2 = "0.5.2"
+# 随机数生成器
+rand = "0.8.5"
+# ⚠️ 修复: 添加 sha2 库用于简单的密钥派生
+sha2 = "0.10.8"
